@@ -18,7 +18,7 @@ jobs:
           test -d "$ANDROID_HOME/platforms/android-35"
           test -d "$ANDROID_HOME/build-tools/35.0.0"
       - name: Unpack project
-        run: unzip -q ManyAlarms-project-v3.zip
+        run: unzip -q ManyAlarms-project-v4.zip
       - name: Build APK
         working-directory: ManyAlarms
         run: gradle --no-daemon :app:assembleDebug
