@@ -10,12 +10,13 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: android-actions/setup-android@v4
-        with:
-          packages: 'platforms;android-35 build-tools;35.0.0'
       - uses: gradle/actions/setup-gradle@v6
         with:
           gradle-version: '8.11.1'
+      - name: Verify preinstalled Android SDK
+        run: |
+          test -d "$ANDROID_HOME/platforms/android-35"
+          test -d "$ANDROID_HOME/build-tools/35.0.0"
       - name: Unpack project
         run: unzip -q ManyAlarms-project.zip
       - name: Build APK
